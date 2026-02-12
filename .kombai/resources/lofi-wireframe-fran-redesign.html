@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Fran de Deus - Redesign Sugerido</title>
+    <style>
+        /* CRITICAL: Balsamiq-style grayscale wireframe */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .wireframe-header {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #333;
+            text-align: center;
+        }
+        
+        .wireframe-header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .wireframe-header p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .section {
+            background: white;
+            border: 2px solid #333;
+            margin-bottom: 20px;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #ccc;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid #333;
+        }
+        
+        .badge {
+            position: absolute;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            z-index: 10;
+        }
+        
+        .badge-reuse {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .badge-new {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .box {
+            border: 2px dashed #666;
+            padding: 15px;
+            background: #fafafa;
+            position: relative;
+        }
+        
+        .img-placeholder {
+            background: #e0e0e0;
+            border: 2px solid #999;
+            padding: 40px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid #333;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .btn-outline {
+            background: white;
+            color: #333;
+        }
+        
+        input, textarea {
+            width: 100%;
+            border: 2px solid #666;
+            padding: 10px;
+            background: white;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            font-size: 14px;
+        }
+        
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .hero {
+            min-height: 400px;
+            background: #ccc;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 2px solid #333;
+            margin-bottom: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+        
+        .card {
+            border: 2px solid #666;
+            padding: 20px;
+            background: white;
+            position: relative;
+        }
+        
+        .icon-placeholder {
+            width: 60px;
+            height: 60px;
+            background: #999;
+            border: 2px solid #666;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .testimonial {
+            border-left: 4px solid #333;
+            padding-left: 15px;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wireframe-header">
+        <h1>🦋 Wireframe: Fran de Deus - Redesign Moderno</h1>
+        <p>Layout com melhor hierarquia visual, acessibilidade aprimorada e design contemporâneo</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #999;">
+            Badges: <span class="badge badge-reuse">[REUSE]</span> = Componente existente | 
+            <span class="badge badge-new">[NEW]</span> = Novo componente
+        </p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="section">
+        <div class="section-label">NAVEGAÇÃO (Header Sticky)</div>
+        <!-- REUSABLE: Estrutura de navegação existente -->
+        <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Estrutura existente em header/navbar">[REUSE] Nav</span>
+        <div class="nav">
+            <div style="font-size: 18px; font-weight: bold;">Fran de Deus 🦋</div>
+            <ul class="nav-links">
+                <li>Início</li>
+                <li>Sobre</li>
+                <li>Serviços</li>
+                <li>Galeria</li>
+                <li>Contato</li>
+            </ul>
+            <div>☰</div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION - MODERN SPLIT DESIGN -->
+    <div class="section">
+        <div class="section-label">HERO - Split com Visual Impactante</div>
+        <div class="grid grid-2">
+            <div style="padding: 40px 20px;">
+                <!-- NEW COMPONENT: Hero content with better typography hierarchy -->
+                <span class="badge badge-new" style="top: 4px; left: 4px;" title="Novo componente com melhor hierarquia">[NEW] HeroContent</span>
+                <div style="font-size: 10px; color: #999; margin-bottom: 10px;">✨ DESIGN DE SOBRANCELHAS</div>
+                <h1 style="font-size: 32px; line-height: 1.2; margin-bottom: 20px;">
+                    A arte de transformar<br>
+                    <span style="font-style: italic; color: #666;">olhares e autoestima</span>
+                </h1>
+                <p style="margin-bottom: 25px; color: #666;">
+                    Técnicas personalizadas de design e micropigmentação com a delicadeza que você merece.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <!-- REUSABLE: Buttons -->
+                    <span class="badge badge-reuse" style="top: -10px; left: 0px;" title="Botão CTA existente">[REUSE] Button</span>
+                    <div class="btn">Agendar Horário</div>
+                    <div class="btn btn-outline">Ver Portfólio</div>
+                </div>
+                
+                <!-- NEW: Trust indicators -->
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ccc;">
+                    <span class="badge badge-new" style="top: 20px; right: 4px;" title="Indicadores de confiança">[NEW] TrustBadges</span>
+                    <div style="display: flex; gap: 20px; font-size: 12px;">
+                        <div>⭐⭐⭐⭐⭐ 5.0</div>
+                        <div>• 500+ clientes</div>
+                        <div>• 8 anos exp.</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- REUSABLE: Image placeholder -->
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Imagem hero existente">[REUSE] Image</span>
+                <div class="img-placeholder" style="height: 100%; min-height: 400px;">
+                    [Foto: Profissional fazendo design]<br>
+                    Vertical 600x800px<br>
+                    Com sobreposição de depoimento flutuante
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS BAR - NEW -->
+    <div class="section">
+        <div class="section-label">BARRA DE ESTATÍSTICAS (Nova)</div>
+        <!-- NEW COMPONENT: Stats showcase -->
+        <span class="badge badge-new" style="top: 4px; right: 4px;" title="Novo componente de estatísticas">[NEW] StatsBar</span>
+        <div class="grid grid-4">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div>Clientes Felizes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div>Anos de Experiência</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5.0</div>
+                <div>Avaliação Média</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div>Satisfação Garantida</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES - BENTO GRID LAYOUT -->
+    <div class="section">
+        <div class="section-label">SERVIÇOS - Layout Bento Grid</div>
+        <h2>Serviços que Transformam</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Escolha o procedimento ideal para você</p>
+        
+        <!-- NEW: Bento grid layout for modern feel -->
+        <span class="badge badge-new" style="top: 40px; right: 4px;" title="Layout bento grid moderno">[NEW] BentoGrid</span>
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+            <!-- Featured service - large card -->
+            <div class="card" style="grid-row: span 2;">
+                <!-- REUSABLE: Service card structure -->
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Estrutura de card existente">[REUSE] Card</span>
+                <div class="icon-placeholder">💉</div>
+                <h3>Micropigmentação Fio a Fio</h3>
+                <p style="margin-bottom: 15px;">Técnica Shadow ou Fio a Fio para sobrancelhas perfeitas todos os dias.</p>
+                <div class="img-placeholder" style="height: 200px; margin: 15px 0;">
+                    [Foto: Resultado micropigmentação]<br>
+                    Antes/Depois slider
+                </div>
+                <div style="font-size: 24px; font-weight: bold; margin: 15px 0;">R$ 450</div>
+                <div class="btn" style="width: 100%;">Agendar Agora</div>
+            </div>
+            
+            <!-- Smaller service cards -->
+            <div class="card">
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Card de serviço">[REUSE] Card</span>
+                <div class="icon-placeholder">✨</div>
+                <h3>Design Personalizado</h3>
+                <p>Mapeamento facial exclusivo</p>
+                <div style="font-size: 20px; font-weight: bold; margin-top: 10px;">R$ 45</div>
+            </div>
+            
+            <div class="card">
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Card de serviço">[REUSE] Card</span>
+                <div class="icon-placeholder">🎨</div>
+                <h3>Design com Henna</h3>
+                <p>Preenchimento natural</p>
+                <div style="font-size: 20px; font-weight: bold; margin-top: 10px;">R$ 60</div>
+            </div>
+        </div>
+        
+        <div class="grid grid-2" style="margin-top: 20px;">
+            <div class="card">
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;">[REUSE] Card</span>
+                <div class="icon-placeholder">🌟</div>
+                <h3>Brow Lamination</h3>
+                <p>Visual moderno e volumoso</p>
+                <div style="font-size: 20px; font-weight: bold; margin-top: 10px;">R$ 120</div>
+            </div>
+            
+            <!-- NEW: Package/combo option -->
+            <div class="card" style="background: #f0f0f0;">
+                <span class="badge badge-new" style="top: 4px; right: 4px;" title="Novo card de combo">[NEW] ComboCard</span>
+                <div class="icon-placeholder">🎁</div>
+                <h3>Pacote Completo</h3>
+                <p>Design + Henna + Lamination</p>
+                <div style="font-size: 20px; font-weight: bold; margin-top: 10px;">
+                    <span style="text-decoration: line-through; font-size: 14px; color: #999;">R$ 225</span>
+                    R$ 180
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT - STICKY VISUAL LAYOUT -->
+    <div class="section">
+        <div class="section-label">SOBRE - Layout com Visual Sticky</div>
+        <div class="grid grid-2">
+            <div>
+                <!-- REUSABLE: About image -->
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Imagem sobre existente">[REUSE] Image</span>
+                <div class="img-placeholder" style="height: 400px;">
+                    [Foto: Fran de Deus]<br>
+                    Profissional portrait<br>
+                    Com elementos decorativos
+                </div>
+                
+                <!-- NEW: Credentials/certifications -->
+                <div style="margin-top: 20px; padding: 15px; border: 2px dashed #999;">
+                    <span class="badge badge-new" style="top: -10px; right: 4px;" title="Certificações e credenciais">[NEW] Credentials</span>
+                    <div style="font-size: 12px; font-weight: bold; margin-bottom: 10px;">CERTIFICAÇÕES</div>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <div style="padding: 5px 10px; border: 1px solid #666; font-size: 11px;">Visagismo</div>
+                        <div style="padding: 5px 10px; border: 1px solid #666; font-size: 11px;">Micropigmentação</div>
+                        <div style="padding: 5px 10px; border: 1px solid #666; font-size: 11px;">Biossegurança</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 style="text-align: left;">Sobre a Fran</h2>
+                <h3 style="color: #666; font-style: italic;">Beleza, leveza e transformação</h3>
+                <p style="margin-bottom: 15px;">
+                    Olá! Sou a Fran de Deus. Minha paixão é revelar a beleza natural de cada cliente. 
+                    Acredito que cada procedimento é um passo para renovar sua autoestima.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Com especialização em visagismo e micropigmentação, busco sempre a harmonia 
+                    perfeita para o seu rosto.
+                </p>
+                
+                <!-- REUSABLE: Features list -->
+                <div style="margin-bottom: 20px;">
+                    <span class="badge badge-reuse" style="top: -10px; right: 4px;" title="Lista de features existente">[REUSE] FeatureList</span>
+                    <div style="margin-bottom: 8px;">✓ Atendimento personalizado</div>
+                    <div style="margin-bottom: 8px;">✓ Técnicas modernas e indolores</div>
+                    <div style="margin-bottom: 8px;">✓ Biossegurança garantida</div>
+                    <div style="margin-bottom: 8px;">✓ Produtos de alta qualidade</div>
+                </div>
+                
+                <div class="btn">Ver Portfólio</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS/HOW IT WORKS - NEW -->
+    <div class="section">
+        <div class="section-label">COMO FUNCIONA (Nova Seção)</div>
+        <h2>Processo de Atendimento</h2>
+        <!-- NEW COMPONENT: Step-by-step process -->
+        <span class="badge badge-new" style="top: 40px; right: 4px;" title="Componente de processo passo a passo">[NEW] ProcessSteps</span>
+        
+        <div class="grid grid-4">
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px; font-weight: bold;">1</div>
+                <h3>Consulta</h3>
+                <p style="font-size: 12px;">Análise facial e definição do formato ideal</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px; font-weight: bold;">2</div>
+                <h3>Design</h3>
+                <p style="font-size: 12px;">Desenho personalizado para aprovação</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px; font-weight: bold;">3</div>
+                <h3>Procedimento</h3>
+                <p style="font-size: 12px;">Aplicação da técnica escolhida</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: #333; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 24px; font-weight: bold;">4</div>
+                <h3>Pós-cuidado</h3>
+                <p style="font-size: 12px;">Orientações e acompanhamento</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTFOLIO/GALLERY - MASONRY GRID -->
+    <div class="section">
+        <div class="section-label">GALERIA - Masonry Grid com Filtros</div>
+        <h2>Galeria de Transformações</h2>
+        
+        <!-- NEW: Filter tabs -->
+        <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 25px;">
+            <span class="badge badge-new" style="top: -10px; right: 4px;" title="Filtros de categoria">[NEW] FilterTabs</span>
+            <div style="padding: 8px 20px; border: 2px solid #333; background: #333; color: white; font-size: 12px; font-weight: bold;">Todos</div>
+            <div style="padding: 8px 20px; border: 2px solid #333; font-size: 12px;">Micropigmentação</div>
+            <div style="padding: 8px 20px; border: 2px solid #333; font-size: 12px;">Henna</div>
+            <div style="padding: 8px 20px; border: 2px solid #333; font-size: 12px;">Lamination</div>
+        </div>
+        
+        <!-- Masonry-style gallery -->
+        <div class="grid grid-3">
+            <!-- REUSABLE: Portfolio items -->
+            <span class="badge badge-reuse" style="top: 60px; right: 4px;" title="Items de portfólio existentes">[REUSE] PortfolioItem</span>
+            <div class="img-placeholder" style="height: 250px;">[Antes/Depois 1]<br>Hover: Detalhes</div>
+            <div class="img-placeholder" style="height: 200px;">[Resultado 2]</div>
+            <div class="img-placeholder" style="height: 280px;">[Antes/Depois 3]</div>
+            <div class="img-placeholder" style="height: 220px;">[Resultado 4]</div>
+            <div class="img-placeholder" style="height: 260px;">[Antes/Depois 5]</div>
+            <div class="img-placeholder" style="height: 200px;">[Resultado 6]</div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS - MODERN LAYOUT -->
+    <div class="section">
+        <div class="section-label">DEPOIMENTOS - Layout Moderno</div>
+        <h2>O que dizem as clientes</h2>
+        
+        <!-- Feature testimonial -->
+        <div style="background: #f0f0f0; padding: 30px; margin-bottom: 25px; border-left: 4px solid #333;">
+            <span class="badge badge-new" style="top: 4px; right: 4px;" title="Depoimento em destaque">[NEW] FeaturedTestimonial</span>
+            <div style="display: flex; gap: 20px; align-items: start;">
+                <div class="img-placeholder" style="width: 80px; height: 80px; min-width: 80px; border-radius: 50%;">[Foto Cliente]</div>
+                <div>
+                    <div style="margin-bottom: 10px;">⭐⭐⭐⭐⭐</div>
+                    <p style="font-size: 16px; font-style: italic; margin-bottom: 10px;">
+                        "Amei o resultado! A Fran é super atenciosa e entendeu exatamente o que eu queria. 
+                        Minha sobrancelha ficou super natural, me sinto renovada!"
+                    </p>
+                    <div style="font-weight: bold;">Ana Silva</div>
+                    <div style="font-size: 12px; color: #666;">Cliente desde 2023</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grid of testimonials -->
+        <div class="grid grid-3">
+            <!-- REUSABLE: Testimonial cards -->
+            <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Cards de depoimento existentes">[REUSE] TestimonialCard</span>
+            <div class="card">
+                <div style="margin-bottom: 10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-size: 14px; margin-bottom: 10px;">"Profissionalismo impecável e mãos de fada!"</p>
+                <div style="font-weight: bold; font-size: 12px;">- Juliana Costa</div>
+            </div>
+            <div class="card">
+                <div style="margin-bottom: 10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-size: 14px; margin-bottom: 10px;">"O Brow Lamination mudou meu olhar completamente!"</p>
+                <div style="font-weight: bold; font-size: 12px;">- Beatriz Oliveira</div>
+            </div>
+            <div class="card">
+                <div style="margin-bottom: 10px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-size: 14px; margin-bottom: 10px;">"Ambiente acolhedor e resultado incrível!"</p>
+                <div style="font-weight: bold; font-size: 12px;">- Mariana Santos</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ - NEW SECTION -->
+    <div class="section">
+        <div class="section-label">PERGUNTAS FREQUENTES (Nova Seção)</div>
+        <h2>Dúvidas Frequentes</h2>
+        <!-- NEW COMPONENT: FAQ Accordion -->
+        <span class="badge badge-new" style="top: 40px; right: 4px;" title="Accordion de FAQ">[NEW] FAQAccordion</span>
+        
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="border-bottom: 2px solid #ccc; padding: 15px 0;">
+                <div style="font-weight: bold; display: flex; justify-content: space-between;">
+                    <span>Quanto tempo dura a micropigmentação?</span>
+                    <span>▼</span>
+                </div>
+                <p style="font-size: 14px; color: #666; margin-top: 10px; padding-left: 20px;">
+                    Em média de 1 a 2 anos, dependendo do tipo de pele e cuidados pós-procedimento.
+                </p>
+            </div>
+            <div style="border-bottom: 2px solid #ccc; padding: 15px 0;">
+                <div style="font-weight: bold; display: flex; justify-content: space-between;">
+                    <span>O procedimento dói?</span>
+                    <span>▼</span>
+                </div>
+            </div>
+            <div style="border-bottom: 2px solid #ccc; padding: 15px 0;">
+                <div style="font-weight: bold; display: flex; justify-content: space-between;">
+                    <span>Qual a diferença entre Fio a Fio e Shadow?</span>
+                    <span>▼</span>
+                </div>
+            </div>
+            <div style="border-bottom: 2px solid #ccc; padding: 15px 0;">
+                <div style="font-weight: bold; display: flex; justify-content: space-between;">
+                    <span>Preciso fazer retoque?</span>
+                    <span>▼</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOCATION & INFO -->
+    <div class="section">
+        <div class="section-label">LOCALIZAÇÃO E HORÁRIOS</div>
+        <div class="grid grid-2">
+            <div>
+                <!-- REUSABLE: Info boxes -->
+                <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Caixas de informação existentes">[REUSE] InfoBox</span>
+                <h3>📍 Localização</h3>
+                <div class="img-placeholder" style="height: 250px; margin: 15px 0;">
+                    [Google Maps Embed]<br>
+                    Com iframe title
+                </div>
+                <p>Av. Paulista, 1000 - Sala 42<br>São Paulo, SP</p>
+            </div>
+            <div>
+                <h3>🕐 Horários de Atendimento</h3>
+                <div style="margin: 15px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>Segunda a Sexta:</span>
+                        <span>09:00 - 19:00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>Sábado:</span>
+                        <span>09:00 - 14:00</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>Domingo:</span>
+                        <span>Fechado</span>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 25px;">⚠️ Política de Cancelamento</h3>
+                <p style="font-size: 14px;">
+                    Pedimos a gentileza de avisar com no mínimo 24h de antecedência 
+                    em caso de cancelamento ou reagendamento.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM - IMPROVED -->
+    <div class="section">
+        <div class="section-label">FORMULÁRIO DE CONTATO - Melhorado</div>
+        <h2>Agende seu Horário</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #666;">Entre em contato e inicie sua transformação</p>
+        
+        <div style="max-width: 600px; margin: 0 auto;">
+            <!-- REUSABLE: Form structure -->
+            <span class="badge badge-reuse" style="top: 60px; right: 4px;" title="Estrutura de formulário existente">[REUSE] Form</span>
+            
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Completo *</label>
+                <input type="text" placeholder="Seu nome">
+            </div>
+            
+            <div class="grid grid-2">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">Telefone / WhatsApp *</label>
+                    <input type="tel" placeholder="(00) 00000-0000">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: bold;">E-mail *</label>
+                    <input type="email" placeholder="seu@email.com">
+                </div>
+            </div>
+            
+            <!-- NEW: Service selection -->
+            <div style="margin-bottom: 15px;">
+                <span class="badge badge-new" style="top: 0px; right: 0px;" title="Seleção de serviço">[NEW] ServiceSelect</span>
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Serviço Desejado *</label>
+                <select style="width: 100%; border: 2px solid #666; padding: 10px; background: white; font-family: 'Comic Sans MS'; font-size: 14px;">
+                    <option>Selecione um serviço</option>
+                    <option>Design Personalizado (R$ 45)</option>
+                    <option>Design com Henna (R$ 60)</option>
+                    <option>Micropigmentação (R$ 450)</option>
+                    <option>Brow Lamination (R$ 120)</option>
+                    <option>Pacote Completo (R$ 180)</option>
+                </select>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Mensagem (opcional)</label>
+                <textarea rows="4" placeholder="Alguma observação ou preferência?"></textarea>
+            </div>
+            
+            <div class="btn" style="width: 100%; text-align: center;">Enviar Mensagem</div>
+            
+            <!-- NEW: Privacy note -->
+            <p style="font-size: 11px; color: #999; margin-top: 15px; text-align: center;">
+                Ao enviar, você concorda com nossa política de privacidade
+            </p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="section">
+        <div class="section-label">FOOTER</div>
+        <!-- REUSABLE: Footer structure -->
+        <span class="badge badge-reuse" style="top: 4px; right: 4px;" title="Estrutura de footer existente">[REUSE] Footer</span>
+        
+        <div class="grid grid-3" style="margin-bottom: 25px;">
+            <div>
+                <h3>Fran de Deus 🦋</h3>
+                <p style="font-size: 14px; color: #666;">
+                    Transformando olhares com delicadeza e precisão desde 2016.
+                </p>
+            </div>
+            <div>
+                <h3>Links Rápidos</h3>
+                <div style="font-size: 14px;">
+                    <div style="margin-bottom: 5px;">Início</div>
+                    <div style="margin-bottom: 5px;">Serviços</div>
+                    <div style="margin-bottom: 5px;">Galeria</div>
+                    <div style="margin-bottom: 5px;">Contato</div>
+                </div>
+            </div>
+            <div>
+                <h3>Redes Sociais</h3>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <div style="width: 40px; height: 40px; border: 2px solid #333; display: flex; align-items: center; justify-content: center; border-radius: 50%;">IG</div>
+                    <div style="width: 40px; height: 40px; border: 2px solid #333; display: flex; align-items: center; justify-content: center; border-radius: 50%;">FB</div>
+                    <div style="width: 40px; height: 40px; border: 2px solid #333; display: flex; align-items: center; justify-content: center; border-radius: 50%;">WA</div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; padding-top: 20px; border-top: 2px solid #ccc; font-size: 12px; color: #666;">
+            © 2024 Fran de Deus. Todos os direitos reservados.
+        </div>
+    </div>
+
+    <div style="background: white; border: 2px solid #333; padding: 20px; margin-top: 30px; text-align: center;">
+        <h3 style="margin-bottom: 10px;">📝 Resumo do Redesign</h3>
+        <p style="font-size: 14px; color: #666; max-width: 800px; margin: 0 auto;">
+            <strong>Principais Melhorias:</strong><br>
+            ✓ Hero moderno com split layout e melhor hierarquia<br>
+            ✓ Barra de estatísticas para credibilidade<br>
+            ✓ Serviços em layout Bento Grid (mais moderno)<br>
+            ✓ Seção "Como Funciona" para educação do cliente<br>
+            ✓ Galeria com filtros interativos<br>
+            ✓ FAQ para reduzir atrito no contato<br>
+            ✓ Formulário com seleção de serviço<br>
+            ✓ Melhor estrutura semântica (landmarks HTML5)<br>
+            ✓ Componentes reutilizáveis claramente marcados
+        </p>
+    </div>
+
+</body>
+</html>
