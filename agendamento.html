@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Agende seu horário com Fran de Deus. Escolha o serviço, dia e horário de forma prática.">
+        <meta name="keywords" content="agendamento, horário, sobrancelhas, Fran de Deus, design, micropigmentação">
+        <meta name="author" content="Fran de Deus">
+        <title>Agendamento | Fran de Deus</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+    <body data-booking-page="true">
+        <header>
+            <div class="container">
+                <nav class="navbar" aria-label="Navegação principal">
+                    <a href="index.html#home" class="logo">
+                        Fran de Deus <i class="fa-solid fa-butterfly butterfly-icon" aria-hidden="true"></i>
+                    </a>
+                    <ul class="nav-links">
+                        <li><a href="index.html#home">Início</a></li>
+                        <li><a href="index.html#about">Sobre</a></li>
+                        <li><a href="index.html#services">Serviços</a></li>
+                        <li><a href="index.html#portfolio">Portfólio</a></li>
+                        <li><a href="index.html#testimonials">Depoimentos</a></li>
+                        <li class="nav-cta"><a href="#booking">Agendar</a></li>
+                    </ul>
+                    <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section id="booking" class="booking" aria-labelledby="booking-heading">
+                <div class="container">
+                    <div class="section-title">
+                        <h2 id="booking-heading">Agende seu horário</h2>
+                        <p>Selecione o serviço, o dia, o horário e confirme seu atendimento.</p>
+                    </div>
+                    <div class="booking-container">
+                        <ol class="booking-steps-indicator" aria-label="Etapas do agendamento">
+                            <li class="booking-step-indicator active" data-step="1">Serviço</li>
+                            <li class="booking-step-indicator" data-step="2">Data</li>
+                            <li class="booking-step-indicator" data-step="3">Horário</li>
+                            <li class="booking-step-indicator" data-step="4">Confirmação</li>
+                        </ol>
+                        <div class="form-message" id="bookingAlert" role="alert" aria-live="polite"></div>
+                        <form id="bookingForm" novalidate>
+                            <div class="booking-steps">
+                                <div class="booking-step active" data-step="1">
+                                    <div class="form-group">
+                                        <span class="booking-step-title">Serviço desejado *</span>
+                                        <div class="booking-services-grid">
+                                            <button type="button" class="booking-service-card" data-service-id="design">
+                                                <h3>Design Personalizado</h3>
+                                                <p>Limpeza e desenho das sobrancelhas para realçar o olhar.</p>
+                                                <div class="booking-service-meta">
+                                                    <span class="booking-service-duration">~30 min</span>
+                                                    <span class="booking-service-price">R$ 45</span>
+                                                </div>
+                                            </button>
+                                            <button type="button" class="booking-service-card" data-service-id="henna">
+                                                <h3>Design com Henna</h3>
+                                                <p>Preenchimento suave com henna para sobrancelhas mais marcadas.</p>
+                                                <div class="booking-service-meta">
+                                                    <span class="booking-service-duration">~45 min</span>
+                                                    <span class="booking-service-price">R$ 60</span>
+                                                </div>
+                                            </button>
+                                            <button type="button" class="booking-service-card" data-service-id="micropigmentacao">
+                                                <h3>Micropigmentação</h3>
+                                                <p>Técnica avançada para sobrancelhas definidas e naturais.</p>
+                                                <div class="booking-service-meta">
+                                                    <span class="booking-service-duration">~120 min</span>
+                                                    <span class="booking-service-price">R$ 450</span>
+                                                </div>
+                                            </button>
+                                            <button type="button" class="booking-service-card" data-service-id="lamination">
+                                                <h3>Brow Lamination</h3>
+                                                <p>Efeito lifting para um visual moderno e alinhado.</p>
+                                                <div class="booking-service-meta">
+                                                    <span class="booking-service-duration">~60 min</span>
+                                                    <span class="booking-service-price">R$ 120</span>
+                                                </div>
+                                            </button>
+                                            <button type="button" class="booking-service-card" data-service-id="pacote">
+                                                <h3>Pacote Completo</h3>
+                                                <p>Combinação de técnicas para transformação completa.</p>
+                                                <div class="booking-service-meta">
+                                                    <span class="booking-service-duration">~90 min</span>
+                                                    <span class="booking-service-price">R$ 180</span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" id="bookingService" value="">
+                                    </div>
+                                    <button type="button" class="btn" data-next-step="2">Escolher data</button>
+                                </div>
+                                <div class="booking-step" data-step="2">
+                                    <div class="form-group">
+                                        <span class="booking-step-title">Dia do atendimento *</span>
+                                        <div class="booking-calendar" aria-label="Selecione uma data">
+                                            <div class="calendar-header">
+                                                <button type="button" class="calendar-nav" data-calendar-action="prev-month" aria-label="Mês anterior">
+                                                    <i class="fas fa-chevron-left"></i>
+                                                </button>
+                                                <div class="calendar-current-month" id="calendarCurrentMonth"></div>
+                                                <button type="button" class="calendar-nav" data-calendar-action="next-month" aria-label="Próximo mês">
+                                                    <i class="fas fa-chevron-right"></i>
+                                                </button>
+                                            </div>
+                                            <div class="calendar-grid" id="bookingCalendarGrid"></div>
+                                        </div>
+                                        <input type="hidden" id="bookingDate" value="">
+                                    </div>
+                                    <p class="booking-hint">Atendimentos de segunda a sábado. Domingos fechados.</p>
+                                    <div class="booking-actions">
+                                        <button type="button" class="btn btn-white" data-prev-step="1">Voltar</button>
+                                        <button type="button" class="btn" data-next-step="3">Escolher horário</button>
+                                    </div>
+                                </div>
+                                <div class="booking-step" data-step="3">
+                                    <div class="form-group">
+                                        <label>Horário disponível *</label>
+                                        <div id="timeSlots" class="time-slots" aria-live="polite"></div>
+                                    </div>
+                                    <div class="booking-actions">
+                                        <button type="button" class="btn btn-white" data-prev-step="2">Voltar</button>
+                                        <button type="button" class="btn" data-next-step="4">Prosseguir</button>
+                                    </div>
+                                </div>
+                                <div class="booking-step" data-step="4">
+                                    <div class="booking-summary" id="bookingSummary"></div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="bookingName">Nome completo *</label>
+                                            <input type="text" id="bookingName" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bookingPhone">Telefone / WhatsApp *</label>
+                                            <input type="tel" id="bookingPhone" class="form-control" placeholder="(00) 00000-0000" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookingEmail">E-mail *</label>
+                                        <input type="email" id="bookingEmail" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookingNotes">Observações (opcional)</label>
+                                        <textarea id="bookingNotes" class="form-control" placeholder="Alguma observação ou preferência?"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn" style="width: 100%;">Confirmar agendamento</button>
+                                    <p class="form-privacy-note">Ao confirmar, você concorda com nossa política de privacidade.</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer role="contentinfo">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-title">Fran de Deus <i class="fa-solid fa-butterfly" aria-hidden="true"></i></h3>
+                        <p class="footer-description">Transformando olhares com delicadeza e precisão desde 2016.</p>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Links Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html#home">Início</a></li>
+                            <li><a href="index.html#services">Serviços</a></li>
+                            <li><a href="index.html#portfolio">Galeria</a></li>
+                            <li><a href="#booking">Agendar</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Redes Sociais</h4>
+                        <div class="footer-social">
+                            <a href="https://instagram.com/frandedeus" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram (abre em nova aba)">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://facebook.com/frandedeus" target="_blank" rel="noopener noreferrer" aria-label="Curta nossa página no Facebook (abre em nova aba)">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                            </a>
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" aria-label="Entre em contato pelo WhatsApp (abre em nova aba)">
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="copyright">&copy; 2026 Fran de Deus. Todos os direitos reservados.</p>
+                    <div class="footer-butterfly" aria-hidden="true">
+                        <i class="fa-solid fa-butterfly"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
